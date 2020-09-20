@@ -1,0 +1,9 @@
+Primo esercizio:
+find / -type f ! -path "/sys" ! -path "/dev/*" ! -path "/proc/*" ! -path "/tmp/*" -exec sha512sum {} \; > tabella.txt
+
+Secondo esercizio:
+find / -type f ! -path "/sys" ! -path "/dev/*" ! -path "/proc/*" -exec 
+
+Variante:
+find / -type f ! -path "/sys" ! -path "/dev/*" ! -path "/proc/*" -exec file {} ";" | grep 'ASCII'   > tabella2.txt
+
