@@ -1,0 +1,98 @@
+# Esercizio:
+# Data: 23/03/2017
+# Autore: Lanzarotti Valentino
+# Nome programma: getproxylist.py
+
+# Importazione moduli necessari:
+#import pandas as pd
+import requests
+import csv
+import urllib
+import urllib2
+import ssl
+
+from sortedcontainers import*
+from bs4 import BeautifulSoup
+
+# Definizione delle funzioni necessarie:
+#Funzione che chiede un link in ingresso:
+def AskUrl():
+    lnk = raw_input("Inserire un link http: ")
+    return lnk
+
+def VerificaUrl(linksearch):
+    try: # Solleva un eccezione e l'uscita da programma se non e' correto il link'
+        if not 'http://' in linksearch:
+            raise ValueError("Inserire un link corretto,l'input non puo' essere vuoto")
+        else:
+             tds = []
+             table = soup.findAll("table", {"class": "hma-table"})
+             for row in rows:
+               rows = div.findAll('tr')
+               for col in cols:
+                 tds.append(row.findAll('td'))
+                 print (tds)
+             #Generate lists
+             #Pagina = urllib.urlopen(linksearch).read()
+             #html = BeautifulSoup(Pagina,'html.parser')
+             #for row in html.find_all('span',attrs={"class" : "updatets"}):
+                #print row.text
+             ###
+             #Update = html.find_all('span',{'class':'updatets'})
+             #print (Update)
+    except ValueError as I:
+             print(I)
+             return False
+
+
+
+#
+# Funzione main:
+def main():
+    linksearch = "http://proxylist.hidemyass.com/"
+    #linksearch = AskUrl()
+    VerificaUrl(linksearch)
+
+
+#
+if __name__ == '__main__':
+   main()
+
+#def VerificaUrl(link):
+    #try: # Solleva un eccezione e l'uscita da programma se non e' correto il link'
+        #if not 'http://' in link:
+            #raise ValueError("Inserire un link corretto,l'input non puo' essere vuoto")
+        #else:
+             #DatiTrovati = []
+             #Pagina = urllib.urlopen(link).read()
+             #soup = BeautifulSoup(Pagina,'html.parser')
+             #RicercaTable = soup.find('table')
+             #print("Inizio ricerca")
+             #for inpt in RicercaTable.findAll('span'):
+                 #print('Nome colonna:   '+str(inpt.text))
+                 #print('Valore colonna: '+str(inpt.text))
+    #except ValueError as I:
+             #print(I)
+             #return False
+        ##if RicercaTable:
+            ##for righe in RicercaTable.findAll("tr"):
+                ###colonne = righe.findAll('td')
+                ##tds = righe.find_all("td")
+                ##print "UltimoUpdate: %s,IndirizzoIP: %s,Porta: %s" % \
+                  ##(tds[1].text,tds[2].text,tds[3].text, \
+                   ##tds[4].text,tds[5].text,tds[6].text,
+                   ##tds[7].text,tds[8].text)
+                ###UltimoUpdate = colonne[0].string.strip()
+                ##IndirizzoIP = colonne[1].string.strip()
+                ##Porta = colonne[2].string.strip()
+                ##Nazione = colonne[3].string.strip()
+                ##Velocita = colonne[4].string.strip()
+                ##TempoConn = colonne[5].string.strip()
+                ##TipoConn = colonne[6].string.strip()
+                ##MediaConn = colonne[7].string.strip()
+                ##Record = '%s;%s;%s;%s;%s;%s;%s;' % (UltimoUpdate,IndirizzoIP,Porta,Nazione,Velocita,TempoConn,TipoConn,MediaConn)
+                ##DatiTrovati.append(Record)
+                ### Salva i dati su file csv
+                ##writeout = csv.writer(open("/home/lanzarotti/Scrivania/proxylist.csv", 'w'))
+                ##for row in DatiTrovati:
+                   #writeout.writerow(row)
